@@ -74,7 +74,7 @@ const AntelopeTable = () => {
       <CardBody>
         <TableContainer h='75vh' overflowY='scroll'>
           <Table variant='simple' size='sm'>
-            <Thead>
+            <Thead pos='sticky' top='0' bg='white' zIndex='10'>
               <Tr>
                 <Th
                   onClick={() => requestSort("name", sortConfig, setSortConfig)}
