@@ -21,6 +21,8 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
+import { css } from "@emotion/react";
+
 import { requestSort, renderSortIcon } from "../utils/tables";
 
 import { useState } from "react";
@@ -65,6 +67,14 @@ const AntelopeTable = () => {
       </Alert>
     );
   }
+
+  const hoverAnimation = css`
+    &:hover {
+      background-color: #f5f5f5;
+      transform: scale(1.02);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+  `;
 
   return (
     <Card h='100%'>
@@ -127,6 +137,7 @@ const AntelopeTable = () => {
                       setModalTitle(species.name);
                       onOpen();
                     }}
+                    css={hoverAnimation}
                   >
                     <Td>
                       <Flex alignItems='center' gap={4}>
