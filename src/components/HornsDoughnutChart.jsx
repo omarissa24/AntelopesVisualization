@@ -22,20 +22,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const HornsDoughnutChart = () => {
   const { data, loading, error } = useAntelopeData();
 
-  if (loading) {
-    return <Spinner />;
-  }
-
-  if (error) {
-    return (
-      <Alert status='error'>
-        <AlertIcon />
-        <AlertTitle mr={2}>Error!</AlertTitle>
-        <AlertDescription>{error.message}</AlertDescription>
-      </Alert>
-    );
-  }
-
   const horns = data.reduce((acc, species) => {
     if (acc[species.horns]) {
       acc[species.horns] += 1;
@@ -71,6 +57,20 @@ const HornsDoughnutChart = () => {
       },
     ],
   };
+
+  if (loading || !horns) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return (
+      <Alert status='error'>
+        <AlertIcon />
+        <AlertTitle mr={2}>Error!</AlertTitle>
+        <AlertDescription>{error.message}</AlertDescription>
+      </Alert>
+    );
+  }
 
   return (
     <Card overflowX='auto' w='100%'>

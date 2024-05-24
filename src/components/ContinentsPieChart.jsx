@@ -15,24 +15,12 @@ import {
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
+ChartJS.defaults.animation.duration = 1000;
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ContinentsPieChart = () => {
   const { data, loading, error } = useAntelopeData();
-
-  if (loading) {
-    return <Spinner />;
-  }
-
-  if (error) {
-    return (
-      <Alert status='error'>
-        <AlertIcon />
-        <AlertTitle mr={2}>Error!</AlertTitle>
-        <AlertDescription>{error.message}</AlertDescription>
-      </Alert>
-    );
-  }
 
   const continents = data.reduce((acc, species) => {
     if (acc[species.continent]) {
@@ -69,6 +57,20 @@ const ContinentsPieChart = () => {
       },
     ],
   };
+
+  if (loading || !continents) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return (
+      <Alert status='error'>
+        <AlertIcon />
+        <AlertTitle mr={2}>Error!</AlertTitle>
+        <AlertDescription>{error.message}</AlertDescription>
+      </Alert>
+    );
+  }
 
   return (
     <Card overflowX='auto' w='100%'>
