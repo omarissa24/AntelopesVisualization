@@ -8,9 +8,7 @@ const AntelopeDataProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "https://work-sample-mk-oissa.s3.eu-west-3.amazonaws.com/species.json"
-    )
+    fetch(import.meta.env.VITE_ANTELOPES_API_URL)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
