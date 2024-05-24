@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Box bg='gray.50'>
+    <Box bg='gray.50' minH='100vh'>
       <Header />
       <Main />
     </Box>

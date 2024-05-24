@@ -9,6 +9,7 @@ import {
   CardBody,
   Spinner,
   Heading,
+  Box,
 } from "@chakra-ui/react";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -70,12 +71,14 @@ const HornsDoughnutChart = () => {
   };
 
   return (
-    <Card overflowX='auto' w='100%' minH='405px'>
+    <Card overflowX='auto' w='100%'>
       <CardHeader>
         <Heading size='md'>Horns per Species</Heading>
       </CardHeader>
       <CardBody>
-        <Doughnut data={chartData} />
+        <Box h='100%' w='100%'>
+          <Doughnut data={chartData} />
+        </Box>
       </CardBody>
     </Card>
   );

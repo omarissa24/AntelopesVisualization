@@ -6,7 +6,7 @@ import { Flex, Box } from "@chakra-ui/react";
 
 const Dashboard = () => {
   return (
-    <Box h='100%' w='100%'>
+    <Box h='100%' w='100%' px={{ base: 4, md: 8 }} py={5}>
       <Flex
         gap={6}
         wrap='wrap'
@@ -18,9 +18,8 @@ const Dashboard = () => {
       >
         <AntelopeTable />
         <Flex
-          direction='column'
+          flexDir={{ base: "column", md: "row", xl: "column" }}
           gap={6}
-          h='90vh'
           justifyContent='space-between'
         >
           <HornsDoughnutChart />

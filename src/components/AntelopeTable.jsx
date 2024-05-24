@@ -67,13 +67,13 @@ const AntelopeTable = () => {
   }
 
   return (
-    <Card h='90vh'>
+    <Card h='100%'>
       <CardHeader>
         <Heading size='md'>Antelope Species</Heading>
       </CardHeader>
       <CardBody>
-        <TableContainer>
-          <Table variant='simple' size='sm' overflowY='scroll'>
+        <TableContainer h='75vh' overflowY='scroll'>
+          <Table variant='simple' size='sm'>
             <Thead>
               <Tr>
                 <Th

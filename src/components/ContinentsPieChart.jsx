@@ -9,6 +9,7 @@ import {
   CardBody,
   Spinner,
   Heading,
+  Box,
 } from "@chakra-ui/react";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -70,12 +71,14 @@ const ContinentsPieChart = () => {
   };
 
   return (
-    <Card overflowX='auto' w='100%' minH='405px'>
+    <Card overflowX='auto' w='100%'>
       <CardHeader>
         <Heading size='md'>Species per Continent</Heading>
       </CardHeader>
       <CardBody>
-        <Pie data={chartData} />
+        <Box h='100%' w='100%'>
+          <Pie data={chartData} />
+        </Box>
       </CardBody>
     </Card>
   );
